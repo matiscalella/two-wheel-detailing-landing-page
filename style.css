@@ -1,23 +1,20 @@
-/* =========================
-   THEME TOKENS (Light/Dark)
-   ========================= */
-
+/* --------------- Theme tokens ---------------*/
 :root {
   /* Base (light) */
-  --bg: #F1F0EA;        /* fondo principal */
-  --text: #2D232E;      /* texto principal */
-  --muted: #534B52;     /* texto secundario */
+  --bg: #F1F0EA;        /* main background */
+  --text: #2D232E;      /* main text */
+  --muted: #534B52;     /* secondary text */
 
   /* Surfaces */
   --section-alt: #E0DDCF;            /* .section-light */
   --surface: #FFFFFF;                /* cards */
-  --border: rgba(71, 68, 72, 0.22);  /* basado en #474448 */
+  --border: rgba(71, 68, 72, 0.22);  /* borders */
 
   /* Brand / accents */
-  --accent: #2D232E;    /* en light, que sea sobrio (podés cambiarlo luego) */
+  --accent: #2D232E;
 
   /* Hero overlay */
-  --hero-overlay: rgba(45, 35, 46, 0.55); /* overlay con tono ciruela */
+  --hero-overlay: rgba(45, 35, 46, 0.55); /* overlay tone */
 
   /* Shadows (light) */
   --shadow-popular: 0 14px 34px rgba(45, 35, 46, 0.18);
@@ -30,39 +27,21 @@
   --footer-hover: #ffffff;
 }
 
-/* Cards coherentes con tu palette */
-.card {
-  background-color: var(--surface);
-  border-color: var(--border);
-}
-
-/* Los .text-muted de Bootstrap quedan medio “azules/grises” por defecto;
-   acá los alineamos con tu --muted */
-.text-muted {
-  color: var(--muted) !important;
-}
-
-/* Navbar en light: que bg-body-tertiary no quede “blanco bootstrap” */
-.navbar.bg-body-tertiary {
-  background-color: var(--surface) !important;
-  border-bottom: 1px solid var(--border);
-}
-
-/* Dark theme overrides */
+/* --------------- Dark theme overrides --------------- */
 [data-theme="dark"] {
   /* Base */
-  --bg: #0a0a0a; /* negro profundo */
-  --text: #f5f5f5; /* blanco suave */
-  --muted: #b5b5b5; /* gris elegante */
+  --bg: #0a0a0a;
+  --text: #f5f5f5;
+  --muted: #b5b5b5;
 
   /* Surfaces */
-  --section-alt: #121212; /* negro elevado */
+  --section-alt: #121212;
   --surface: #1a1a1a; /* cards */
-  --border: rgba(212, 175, 55, 0.25); /* borde dorado sutil */
+  --border: rgba(212, 175, 55, 0.25); /* subtle golden border */
 
-  /* Accent (DORADO) */
-  --accent: #d4af37; /* gold clásico */
-  --accent-strong: #f2c94c; /* gold brillante para hover */
+  /* Accent (gold) */
+  --accent: #d4af37;
+  --accent-strong: #f2c94c; /* hover gold */
 
   /* Hero overlay */
   --hero-overlay: rgba(0, 0, 0, 0.45);
@@ -77,90 +56,8 @@
   /* Footer hover */
   --footer-hover: #d4af37;
 }
-/* =========================
-   GOLD BUTTONS (DARK MODE)
-   ========================= */
 
-[data-theme="dark"] .btn-outline-light {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-
-[data-theme="dark"] .btn-outline-light:hover {
-  background-color: var(--accent);
-  border-color: var(--accent);
-  color: #000;
-}
-
-/* =========================
-   NAVBAR GOLD (DARK MODE)
-   ========================= */
-
-[data-theme="dark"] .navbar {
-  --bs-navbar-color: #dcdcdc;
-  --bs-navbar-hover-color: var(--accent);
-  --bs-navbar-active-color: var(--accent);
-  --bs-navbar-brand-color: var(--accent);
-  --bs-navbar-brand-hover-color: var(--accent-strong);
-}
-
-/* =========================
-   PRICING BUTTONS (DARK MODE)
-   Convert btn-outline-dark -> Gold outline
-   ========================= */
-
-[data-theme="dark"] .btn-outline-dark {
-  color: var(--accent);
-  border-color: var(--accent);
-  background-color: transparent;
-}
-
-[data-theme="dark"] .btn-outline-dark:hover,
-[data-theme="dark"] .btn-outline-dark:focus {
-  color: #000;
-  background-color: var(--accent);
-  border-color: var(--accent);
-  box-shadow: none;
-}
-
-[data-theme="dark"] .btn-outline-dark:active {
-  color: #000;
-  background-color: var(--accent-strong);
-  border-color: var(--accent-strong);
-}
-
-/* =========================
-   PREMIUM BUTTON (DARK MODE)
-   ========================= */
-
-[data-theme="dark"] .pricing-popular .btn-dark {
-  background-color: var(--accent);
-  border-color: var(--accent);
-  color: #000;
-}
-
-[data-theme="dark"] .pricing-popular .btn-dark:hover {
-  background-color: var(--accent-strong);
-  border-color: var(--accent-strong);
-  color: #000;
-}
-
-/* =========================
-   PREMIUM CARD ELEVATION (DARK MODE)
-   ========================= */
-
-[data-theme="dark"] .pricing-popular {
-  border-color: rgba(212, 175, 55, 0.45) !important;
-
-  box-shadow:
-    0 20px 55px rgba(0, 0, 0, 0.85),
-    0 0 24px rgba(212, 175, 55, 0.28);
-}
-
-/* =========================
-   GLOBAL
-   ========================= */
-
+/* --------------- Global Styles */
 html {
   scroll-padding-top: 40px;
   scroll-behavior: smooth;
@@ -176,7 +73,37 @@ body {
   background-color: var(--section-alt);
 }
 
-/* ------- NavBar --------*/
+/* --------------- Bootstrap overrides --------------- */
+
+/* Cards */
+.card {
+  background-color: var(--surface);
+  border-color: var(--border);
+}
+
+/* .text-muted default Bootstrap aligned with --muted color */
+.text-muted {
+  color: var(--muted) !important;
+}
+
+/* Navbar (light theme) */
+.navbar.bg-body-tertiary {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Toggle (Bootstrap switch) */
+.form-check-input:checked {
+  background-color: var(--control-checked-bg);
+  border-color: var(--control-checked-border);
+}
+
+.form-check-input:focus {
+  box-shadow: none;
+  border-color: inherit;
+}
+
+/* --------------- NavBar --------------- */
 .navbar-logo {
   height: 40px;
   width: auto;
@@ -191,18 +118,16 @@ body {
   }
 }
 
-/* Toggle (Bootstrap switch) */
-.form-check-input:checked {
-  background-color: var(--control-checked-bg);
-  border-color: var(--control-checked-border);
+/* NavBar (dark mode) */
+[data-theme="dark"] .navbar {
+  --bs-navbar-color: #dcdcdc;
+  --bs-navbar-hover-color: var(--accent);
+  --bs-navbar-active-color: var(--accent);
+  --bs-navbar-brand-color: var(--accent);
+  --bs-navbar-brand-hover-color: var(--accent-strong);
 }
 
-.form-check-input:focus {
-  box-shadow: none;
-  border-color: inherit;
-}
-
-/* ------- Hero Section --------*/
+/* --------------- Hero Section --------------- */
 .hero {
   position: relative;
   height: 90vh;
@@ -224,13 +149,13 @@ body {
   z-index: 2;
 }
 
-/* ------- Pricing Section --------*/
+/* --------------- Pricing section --------------- */
 .pricing-popular {
   transform: none;
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-  box-shadow: var(--shadow-popular); /* base para light y dark */
+  box-shadow: var(--shadow-popular);
 }
 
 /* Desktop size */
@@ -240,13 +165,13 @@ body {
     border-width: 2px;
   }
 
-  /* Hover light (solo sombra negra elegante) */
+  /* Hover light (pricing section) */
   .pricing-popular:hover {
     transform: translateY(-18px);
     box-shadow: 0 24px 60px rgba(45, 35, 46, 0.28);
   }
 
-  /* Hover dark (sombra + glow dorado) */
+  /* Hover dark (shadow + golden glow) */
   [data-theme="dark"] .pricing-popular:hover {
     box-shadow:
       0 28px 70px rgba(0, 0, 0, 0.85),
@@ -254,25 +179,79 @@ body {
   }
 }
 
-/* ------- Testimonials Section --------*/
+/* Pricing (dark mode) */
+[data-theme="dark"] .btn-outline-dark {
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: transparent;
+}
+
+[data-theme="dark"] .btn-outline-dark:hover,
+[data-theme="dark"] .btn-outline-dark:focus {
+  color: #000;
+  background-color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: none;
+}
+
+[data-theme="dark"] .btn-outline-dark:active {
+  color: #000;
+  background-color: var(--accent-strong);
+  border-color: var(--accent-strong);
+}
+
+/* Premium card (dark mode highlight) */
+[data-theme="dark"] .pricing-popular {
+  border-color: rgba(212, 175, 55, 0.45) !important;
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.85),
+    0 0 24px rgba(212, 175, 55, 0.28);
+}
+
+/* Premium card (dark mode) */
+[data-theme="dark"] .pricing-popular .btn-dark {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #000;
+}
+
+[data-theme="dark"] .pricing-popular .btn-dark:hover {
+  background-color: var(--accent-strong);
+  border-color: var(--accent-strong);
+  color: #000;
+}
+
+/* --------------- Buttons (dark mode) --------------- */
+[data-theme="dark"] .btn-outline-light {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+[data-theme="dark"] .btn-outline-light:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #000;
+}
+
+/* --------------- Testimonials --------------- */
 .testimonial-stars {
   color: var(--accent);
 }
 
-/* ---------- FAQ (Accordion) Premium Styles ---------- */
+/* --------------- FAQ (Accordion) --------------- */
 .accordion-button {
   font-weight: 600;
   font-size: 1.05rem;
 }
 
-/* Respuesta */
+/* FAQ replies */
 .accordion-body {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.6;
 }
 
-/* Estado abierto */
+/* Open accordion */
 .accordion-button:not(.collapsed) {
   color: var(--text);
   background-color: var(--section-alt);
@@ -285,13 +264,13 @@ body {
   border-color: transparent;
 }
 
-/* Flechita */
+/* Accordion arrow style */
 .accordion-button::after {
   filter: grayscale(100%);
   opacity: 0.8;
 }
 
-/* Footer hover */
+/* --------------- Footer --------------- */
 .footer-links a:hover,
 .footer-social a:hover {
   color: var(--footer-hover);
