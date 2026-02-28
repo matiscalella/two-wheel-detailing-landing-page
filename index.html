@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,7 +22,12 @@
       <div class="container-fluid">
         <!-- Logo -->
         <a class="navbar-brand d-flex align-items-center" href="#">
-          <img src="img/logo.png" alt="logo" class="navbar-logo img-fluid" />
+          <img
+            id="siteLogo"
+            src="img/logo-light.png"
+            alt="logo"
+            class="navbar-logo img-fluid"
+          />
         </a>
 
         <!-- Mobile hamburguer -->
@@ -61,7 +66,7 @@
 
           <!-- Toggle Dark Mode -->
           <div class="d-flex align-items-center ms-lg-3 mt-3 mt-lg-0">
-            <span class="d-lg-none me-2 small">Dark mode</span>
+            <span class="d-lg-none me-2 small">Light/dark mode</span>
             <div class="form-check form-switch m-0">
               <input
                 class="form-check-input"
@@ -174,7 +179,7 @@
           <!-- Premium (DESTACADO) -->
           <div class="col-md-4">
             <div
-              class="card h-100 shadow-lg border-dark position-relative pricing-popular"
+              class="card h-100 border-dark position-relative pricing-popular"
             >
               <div class="card-body text-center">
                 <div class="mb-2">
@@ -667,5 +672,34 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const themeSwitch = document.getElementById("darkModeToggle");
+        const root = document.documentElement;
+        const logo = document.getElementById("siteLogo");
+
+        const savedTheme = localStorage.getItem("theme") || "light";
+        applyTheme(savedTheme);
+
+        themeSwitch.checked = savedTheme === "dark";
+
+        themeSwitch.addEventListener("change", () => {
+          const theme = themeSwitch.checked ? "dark" : "light";
+          applyTheme(theme);
+          localStorage.setItem("theme", theme);
+        });
+
+        function applyTheme(theme) {
+          root.dataset.theme = theme;
+          root.setAttribute("data-bs-theme", theme);
+
+          if (theme === "dark") {
+            logo.src = "img/logo-dark.png";
+          } else {
+            logo.src = "img/logo-light.png";
+          }
+        }
+      });
+    </script>
   </body>
 </html>
