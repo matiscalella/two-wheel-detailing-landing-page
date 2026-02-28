@@ -3,31 +3,49 @@
    ========================= */
 
 :root {
-  /* Base */
-  --bg: #ffffff;
-  --text: #212529;
-  --muted: #6c757d;
+  /* Base (light) */
+  --bg: #F1F0EA;        /* fondo principal */
+  --text: #2D232E;      /* texto principal */
+  --muted: #534B52;     /* texto secundario */
 
   /* Surfaces */
-  --section-alt: #f5f5f5; /* tu .section-light */
-  --surface: #ffffff;
-  --border: rgba(0, 0, 0, 0.12);
+  --section-alt: #E0DDCF;            /* .section-light */
+  --surface: #FFFFFF;                /* cards */
+  --border: rgba(71, 68, 72, 0.22);  /* basado en #474448 */
 
   /* Brand / accents */
-  --accent: #c9a227; /* estrellas testimonials */
+  --accent: #2D232E;    /* en light, que sea sobrio (podés cambiarlo luego) */
 
   /* Hero overlay */
-  --hero-overlay: rgba(0, 0, 0, 0.5);
+  --hero-overlay: rgba(45, 35, 46, 0.55); /* overlay con tono ciruela */
 
-  /* Shadows */
-  --shadow-popular: 0 12px 28px rgba(0, 0, 0, 0.18);
+  /* Shadows (light) */
+  --shadow-popular: 0 14px 34px rgba(45, 35, 46, 0.18);
 
   /* Controls */
-  --control-checked-bg: #000;
-  --control-checked-border: #000;
+  --control-checked-bg: #2D232E;
+  --control-checked-border: #2D232E;
 
   /* Footer hover */
   --footer-hover: #ffffff;
+}
+
+/* Cards coherentes con tu palette */
+.card {
+  background-color: var(--surface);
+  border-color: var(--border);
+}
+
+/* Los .text-muted de Bootstrap quedan medio “azules/grises” por defecto;
+   acá los alineamos con tu --muted */
+.text-muted {
+  color: var(--muted) !important;
+}
+
+/* Navbar en light: que bg-body-tertiary no quede “blanco bootstrap” */
+.navbar.bg-body-tertiary {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--border);
 }
 
 /* Dark theme overrides */
@@ -225,7 +243,7 @@ body {
   /* Hover light (solo sombra negra elegante) */
   .pricing-popular:hover {
     transform: translateY(-18px);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 24px 60px rgba(45, 35, 46, 0.28);
   }
 
   /* Hover dark (sombra + glow dorado) */

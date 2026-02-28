@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark" data-bs-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,7 +24,7 @@
         <a class="navbar-brand d-flex align-items-center" href="#">
           <img
             id="siteLogo"
-            src="img/logo-light.png"
+            src="img/logo-dark.png"
             alt="logo"
             class="navbar-logo img-fluid"
           />
@@ -678,7 +678,7 @@
         const root = document.documentElement;
         const logo = document.getElementById("siteLogo");
 
-        const savedTheme = localStorage.getItem("theme") || "light";
+        const savedTheme = localStorage.getItem("theme") || "dark";
         applyTheme(savedTheme);
 
         themeSwitch.checked = savedTheme === "dark";
